@@ -19,7 +19,7 @@ interface ViewState
 interface Action
 
 
-abstract class MiddleWare<A : Action, V : ViewState> {
+abstract class MiddleWare<A : Action> {
     abstract fun bind(action: Observable<A>): Observable<A>
 }
 
@@ -41,7 +41,7 @@ interface Store<A : Action, V : ViewState> {
 
 class DefaultStore<A : Action, V : ViewState>(
     private val reducer: Reducer<A, V>,
-    private val middleWare: MiddleWare<A, V>,
+    private val middleWare: MiddleWare<A>,
     initialState: V
 ) : Store<A, V> {
     private val allActions: PublishSubject<A> = PublishSubject.create()
