@@ -45,7 +45,7 @@ class App : Application() {
 
         single { ContactsViewState.creatEmpty() }
 
-        single<MiddleWare<ContactsAction, ContactsViewState>> {
+        single<MiddleWare<ContactsAction>> {
             ContactsMiddleWare(repository = get())
         }
 

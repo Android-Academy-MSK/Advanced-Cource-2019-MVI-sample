@@ -8,7 +8,7 @@ import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 
 class ContactsMiddleWare(private val repository: ContactSearchRepository) :
-    MiddleWare<ContactsAction, ContactsViewState>() {
+    MiddleWare<ContactsAction>() {
 
 
     override fun bind(actionStream: Observable<ContactsAction>): Observable<ContactsAction> {
